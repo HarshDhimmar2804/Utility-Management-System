@@ -35,6 +35,7 @@ export const signup = async (req, res, next) => {
     return res.status(500).send("Internal server Error");
   }
 };
+
 export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -89,13 +90,13 @@ export const logout = async (req, res) => {
 };
 
 export const checkUser = async (req, res) => {
-  const token = req.cookies.jwtt; // Get the token from cookies
+  const token = req.cookies.jwtt;
   if (!token) {
     return res.status(401).json({ message: "Not authenticated" });
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_KEY); // Replace with your secret key
+    const decoded = jwt.verify(token, process.env.JWT_KEY);
     return res.status(200).json({ isAuthenticated: true, user: decoded });
   } catch (err) {
     return res.status(401).json({ message: "Invalid token" });

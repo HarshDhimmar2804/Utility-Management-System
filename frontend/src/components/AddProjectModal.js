@@ -28,7 +28,7 @@ const AddProjectModal = ({
           toast.error("Something went wrong");
         });
     }
-  }, [isModalOpen]);
+  }, [isModalOpen, edit, id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ const AddProjectModal = ({
         })
         .catch((error) => {
           if (error.response.status === 422) {
-            toast.error(error.response.data.details[0].message);
+            toast.error(error.response.data.details[0]?.message);
           } else {
             toast.error("Something went wrong");
           }
