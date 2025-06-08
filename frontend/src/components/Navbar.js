@@ -6,6 +6,7 @@ import axios from "axios";
 const Navbar = () => {
   // const [userName, setUserName] = useState("");
   const navigate = useNavigate();
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   // useEffect(() => {
   //   // Fetch user data when component mounts

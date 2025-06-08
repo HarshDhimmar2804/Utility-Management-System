@@ -22,7 +22,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://utility-management-system-1.onrender.com",
+    origin: [
+      "http://localhost:3000",
+      "https://utility-management-system-1.onrender.com",
+    ],
     credentials: true,
   })
 );
